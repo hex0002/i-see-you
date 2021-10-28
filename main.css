@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --col1: #000000;
+    --col2: #303030;
+    --col3: #CE3238;
+    --col4: #CCC8A2;
+    --max-distance: -55px;
+} 
+
+body {
+    background-color: var(--col1);
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container::before {
+    content: "";
+    filter: opacity(.1);
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    background: rgb(206,50,56);
+    background: linear-gradient(90deg, rgba(206,50,56,1) 0%, rgba(205,125,109,1) 25%, rgba(204,200,162,1) 55%, rgba(48,48,48,1) 100%, rgba(48,48,48,1) 100%);
+}
+
+.eye {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col4);
+    border-radius: 100% 20% 100% 10% / 100% 20% 100% 10%;
+    z-index: 900;
+}
+
+.eye::after, .eye::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col4);
+    border-radius: 100% 20% 100% 10% / 100% 20% 100% 10%;
+    z-index: 900;
+}
+
+.eye {
+    background-color: transparent;
+}
+
+.eye::before {
+    transform-origin: center;
+    transform: rotate(270deg) translateY(-80px);
+}
+
+.eye::after {
+    transform-origin: center;
+    transform: translateX(80px);
+}
+
+.eye-iris {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--col2);
+    border-radius: 20% 100% 20% 100% / 20% 100% 10% 100%;
+    z-index: 910;
+}
+
+.eye-iris::before, .eye-iris::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--col2);
+    border-radius: 20% 100% 20% 100% / 20% 100% 10% 100%;
+    z-index: 910;
+}
+
+.eye-iris {
+    background-color: transparent;
+}
+
+.eye-iris::before {
+    transform-origin: center;
+    transform: translateX(-50px) translateY(25px);
+}
+
+.eye-iris::after {
+    transform-origin: center;
+    transform: translateX(100px) translateY(25px);
+    border-radius: 100% 20% 100% 20% / 100% 20% 100% 10%;
+}
+
+.eye-pupil {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--col3);
+    border-radius: 20% 100% 20% 100% / 20% 100% 10% 100%;
+    z-index: 920;
+}
+
+.eye-pupil::before, .eye-pupil::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--col3);
+    border-radius: 20% 100% 20% 100% / 20% 100% 10% 100%;
+    z-index: 920;
+}
+
+.eye-pupil {
+    background-color: transparent;
+}
+
+.eye-pupil::before {
+    transform-origin: center;
+    transform: translateX(-35px) translateY(40px);
+    animation: pupil 2s ease-in-out alternate infinite;
+}
+
+.eye-pupil::after {
+    transform-origin: center;
+    border-radius: 100% 20% 100% 20% / 100% 20% 100% 10%;
+    transform: translateX(105px) translateY(40px);
+}
+
+.eye-lid-r {
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col3);
+    transform: translateX(80px);
+    border-radius: 100% 20% 100% 10% / 100% 20% 100% 10%;
+    z-index: 930;
+}
+
+.eye-lid-r {
+    background-color: transparent;
+}
+
+.eye-lid-r::before {
+    content: "";
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col3);
+    border-radius: 100% 20% 100% 10% / 100% 20% 100% 10%;
+    animation: opeclo1 3s ease-in-out alternate infinite;
+    z-index: 930;
+}
+
+.eye-lid-l {
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col3);
+    transform: translateX(-80px) translateY(0px);
+    border-radius: 20% 100% 10% 100% / 20% 100% 10% 100%;
+    animation: iris 2s ease-in-out alternate infinite;
+    z-index: 930;
+}
+
+.eye-lid-l {
+    background-color: transparent;
+}
+
+.eye-lid-l::before {
+    content: "";
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background-color: var(--col3);
+    transform: translateX(0px) translateY(0px);
+    animation: opeclo1 3s ease-in-out alternate infinite;
+    border-radius: 20% 100% 10% 100% / 20% 100% 10% 100%;
+    z-index: 930;
+}
+
+@keyframes opeclo1 {
+    from {
+
+    }
+    to {
+       transform: translateY(var(--max-distance));
+    }
+}
